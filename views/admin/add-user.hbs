@@ -1,0 +1,36 @@
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5">
+
+                        <h3 class="mb-5 text-center">Add User</h3>
+                        {{#if addUserVerify}}
+                        <p class="text-center btn-danger">Email already exists</p>
+                        {{/if}}
+                        <form action="/admin/add-user" method="POST" enctype="multipart/form-data">
+                            {{!-- <div class="form-outline mb-4"> --}}
+                                <label class="form-label" for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control form-control-lg" placeholder="Enter Name" required/>
+                            {{!-- </div> --}}
+                            {{!-- <div class="form-outline mb-4"> --}}
+                                <label class="form-label mt-4" for="email">Email</label>
+                                <input type="email" id="email-2" name="email" class="form-control form-control-lg" placeholder="Enter Email-Address" required/>
+                            {{!-- </div> --}}
+
+                            {{!-- <div class="form-outline mb-4"> --}}
+                                <label class="form-label mt-4" for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Enter Password" required/>
+                            {{!-- </div> --}}
+
+                            <button class="btn btn-primary btn-lg btn-block mt-4" type="submit">Add User</button>
+                            <p class="mt-4 text-center">Return to admin <a href="/admin">panel</a></p>
+                        <hr class="my-4">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+{{#if vAdmin}} 
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+      
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-2 ms-auto mt-4 mb-3">
+        <a href="/admin/add-user" class="btn btn-success ">Add User</a>
+      </div>
+
+      <table class="table mt-5" id="usersTable">
+        <thead>
+          <tr>
+            {{!-- <th scope="col">#</th> --}}
+            <th scope="col">Name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each data}}
+          <tr>
+            {{!-- <th scope="row">1</th> --}}
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td><a style="color: white; text-decoration: none;" href="/admin/edit/{{this._id}}"><button class="btn btn-success">edit</button></a>
+              <button class="btn btn-danger"><a style="color: white; text-decoration: none;"
+                  href="admin/delete/{{this._id}}" onclick="return confirm('do you want to delete user {{this.name}}')">delete</a></button>
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>
+
+<script>
+    $('#usersTable').DataTable();
+  $(document).ready(function() {
+} );
+</script>
+
+{{else}}
+<h4>unauthorised user</h4>
+{{/if}}
